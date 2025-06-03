@@ -53,3 +53,4 @@
         <menuitem name="Listado" id="conv25.menu_alumnos_list" parent="conv25.menu_alumnos" action="conv25.action_window_alumnos"/>
     </data>
 </odoo>
+
