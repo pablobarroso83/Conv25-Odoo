@@ -1,0 +1,55 @@
+<odoo>
+    <data>
+        <!-- Vista arbol -->
+        <record model="ir.ui.view" id="conv25.list_alumnos">
+            <field name="name">Listado de Alumnos</field>
+            <field name="model">conv25.alumno</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="edad"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista formulario -->
+        <record model="ir.ui.view" id="conv25.form_alumnos">
+            <field name="name">Formulario de Alumno</field>
+            <field name="model">conv25.alumno</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="edad"/>
+                        </group>
+                        <notebook>
+                            <page string="Convalidaciones">
+                                <field name="convalidacion_ids">
+                                    <tree>
+                                        <field name="fecha_convalidacion"/>
+                                        <field name="modulo_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Accion de ventanas -->
+        <record model="ir.actions.act_window" id="conv25.action_window_alumnos">
+            <field name="name">Alumnos</field>
+            <field name="res_model">conv25.alumno</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menú principal -->
+        <menuitem name="Convalidaciones 2025" id="conv25.menu_root"/>
+
+        <!-- Submenu alumnos -->
+        <menuitem name="Alumnos" id="conv25.menu_alumnos" parent="conv25.menu_root"/>
+        <menuitem name="Listado" id="conv25.menu_alumnos_list" parent="conv25.menu_alumnos" action="conv25.action_window_alumnos"/>
+    </data>
+</odoo>
